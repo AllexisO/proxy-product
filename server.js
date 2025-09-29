@@ -15,13 +15,13 @@ app.get('/products', async (req, res) => {
 
 app.get('/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`http://localhost:3001/api/products/${id}`);
+    const response = await fetch(`http://api-product:3001/api/products/${id}`);
     const data = await response.json();
     res.json(data);
 });
 
 app.post('/products', async (req, res) => {
-    const response = await fetch('http://localhost:3001/api/products', {
+    const response = await fetch('http://api-product:3001/api/products', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ app.post('/products', async (req, res) => {
 
 app.put('/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`http://localhost:3001/api/products/${id}`, {
+    const response = await fetch(`http://api-product:3001/api/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ app.put('/products/:id', async (req, res) => {
 
 app.delete('/products/:id', async (req, res) => {
   const id = req.params.id;
-  const response = await fetch(`http://localhost:3001/api/products/${id}`, {
+  const response = await fetch(`http://api-product:3001/api/products/${id}`, {
     method: 'DELETE'
   });
   
