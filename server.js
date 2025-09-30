@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
@@ -7,21 +8,23 @@ app.get('/test', (req, res) => {
     res.json({ message: 'Proxy server is working!' });
 });
 
+const API_URL = process.env.API_URL || 'http://api-product:3001';
+
 app.get('/products', async (req, res) => {
-    const response = await fetch('http://api-product:3001/api/products');
+    const response = await fetch(`${API_URL}/api/products`);
     const data = await response.json();
     res.json(data);
 });
 
 app.get('/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`http://api-product:3001/api/products/${id}`);
+    const response = await fetch(`${API_URL}/api/products/${id}`);
     const data = await response.json();
     res.json(data);
 });
 
 app.post('/products', async (req, res) => {
-    const response = await fetch('http://api-product:3001/api/products', {
+    const response = await fetch(`${API_URL}/api/products`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +39,7 @@ app.post('/products', async (req, res) => {
 
 app.put('/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`http://api-product:3001/api/products/${id}`, {
+    const response = await fetch(`${API_URL}/api/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +54,7 @@ app.put('/products/:id', async (req, res) => {
 
 app.delete('/products/:id', async (req, res) => {
   const id = req.params.id;
-  const response = await fetch(`http://api-product:3001/api/products/${id}`, {
+  const response = await fetch(`${API_URL}/api/products/${id}`, {
     method: 'DELETE'
   });
   
