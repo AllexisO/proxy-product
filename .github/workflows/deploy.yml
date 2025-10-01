@@ -1,4 +1,4 @@
-name: Deploy to TrueNAS
+name: Deploy Proxy to TrueNAS
 
 on:
   push:
@@ -7,9 +7,10 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Вместо ubuntu-latest
+    runs-on: self-hosted
+    
     steps:
-      - name: Deploy
+      - name: Deploy Proxy
         run: |
           cd /mnt/applications/BestPrice/proxy-product
           git pull origin master

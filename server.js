@@ -10,7 +10,7 @@ app.get('/test', (req, res) => {
 
 const API_URL = process.env.API_URL || 'http://api-product:3001';
 
-app.get('/products', async (req, res) => {
+app.get('/api/v1/products', async (req, res) => {
     const response = await fetch(`${API_URL}/api/products`);
     const data = await response.json();
     res.json(data);
