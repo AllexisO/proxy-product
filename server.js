@@ -16,15 +16,15 @@ app.get('/api/v1/products', async (req, res) => {
     res.json(data);
 });
 
-app.get('/products/:id', async (req, res) => {
+app.get('/api/v1/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`${API_URL}/api/products/${id}`);
+    const response = await fetch(`${API_URL}/api/v1/products/${id}`);
     const data = await response.json();
     res.json(data);
 });
 
-app.post('/products', async (req, res) => {
-    const response = await fetch(`${API_URL}/api/products`, {
+app.post('/api/v1/products', async (req, res) => {
+    const response = await fetch(`${API_URL}/api/v1/products`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,9 +37,9 @@ app.post('/products', async (req, res) => {
 
 });
 
-app.put('/products/:id', async (req, res) => {
+app.put('/api/v1/products/:id', async (req, res) => {
     const id = req.params.id;
-    const response = await fetch(`${API_URL}/api/products/${id}`, {
+    const response = await fetch(`${API_URL}/api/v1/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -52,9 +52,9 @@ app.put('/products/:id', async (req, res) => {
 
 });
 
-app.delete('/products/:id', async (req, res) => {
+app.delete('/api/v1/products/:id', async (req, res) => {
   const id = req.params.id;
-  const response = await fetch(`${API_URL}/api/products/${id}`, {
+  const response = await fetch(`${API_URL}/api/v1/products/${id}`, {
     method: 'DELETE'
   });
   
