@@ -11,7 +11,7 @@ app.get('/test', (req, res) => {
 const API_URL = process.env.API_URL || 'http://api-product:3001';
 
 app.get('/api/v1/products', async (req, res) => {
-    const response = await fetch(`${API_URL}/api/products`);
+    const response = await fetch(`${API_URL}/api/v1/products`);
     const data = await response.json();
     res.json(data);
 });
@@ -62,6 +62,6 @@ app.delete('/api/v1/products/:id', async (req, res) => {
   res.json(data);
 });
 
-app.listen(3000, () => {
-    console.log('Proxy server running on port 3000');
+app.listen(4000, () => {
+    console.log('Proxy server running on port 4000');
 })
