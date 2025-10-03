@@ -62,6 +62,6 @@ app.delete('/api/v1/products/:id', async (req, res) => {
   res.json(data);
 });
 
-app.listen(4000, () => {
-    console.log('Proxy server running on port 4000');
+app.listen(3000, () => {
+    console.log('Proxy server running on port 3000');
 })
